@@ -11,7 +11,7 @@ function passFloodGate($dontDie = false) {
 	if (apc_exists($key)) {
 		$last_request = apc_fetch($key);	
 		if (($current_request - $last_request) < $limit) {
-			if (!dontDie) {
+			if (!$dontDie) {
 				echo "Rate exceeded.";
 				die();
 			} else {
