@@ -3,3 +3,6 @@ phpFloodGate allows you to set a rate limit, at which your application can be ca
 
 ## Requirements
 phpFloodGate uses the Alternative PHP Cache (APC), so you need to make sure that's installed and working.
+
+## License
+Licensed under MIT license. See LICENSE for details.
