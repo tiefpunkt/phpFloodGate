@@ -32,30 +32,24 @@ function passFloodGate($dontDie = false) {
 function _exists() {
 	global $pers_engine, $apc_key, $fs_filename;
 	
-	if ($pers_engine == "apc") {
-		return apc_exists($apc_key);
-	} else {
-		return file_exists($fs_filename);
-	}
+	return $pers_engine == "apc"
+		? apc_exists($apc_key)
+		: file_exists($fs_filename);
 }
 
 function _get() {
 	global $pers_engine, $apc_key, $fs_filename;
 	
-	if ($pers_engine == "apc") {
-		return apc_fetch($apckey);
-	} else {
-		return file_get_contents($fs_filename);
-	}
+	return $pers_engine == "apc"
+		? apc_fetch($apckey)
+		: file_get_contents($fs_filename);
 }
 
 function _put($value) {
 	global $pers_engine, $apc_key, $fs_filename;
 	
-	if ($pers_engine == "apc") {
-		return apc_store($apc_key, $value);
-	} else {
-		return file_put_contents($fs_filename, $value);
-	}
+	return $pers_engine == "apc"
+		? apc_store($apc_key, $value)
+		: file_put_contents($fs_filename, $value);
 }
 ?>
